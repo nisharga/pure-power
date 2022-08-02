@@ -13,7 +13,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-lg navbar-light  ">
               <div className="container-fluid">
                 <Link to="/" className="navbar-brand logo">
-                  iPower <img src={Logo} alt={"Logo"}></img>
+                  purePower <img src={Logo} alt={"Logo"}></img>
                 </Link>
                 <button
                   className="navbar-toggler"

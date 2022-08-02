@@ -4,6 +4,10 @@ import Header from "./SharedPages/Header/Header";
 import { Route, Routes } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import * as Icons from "@fortawesome/free-solid-svg-icons";
+import About from "./Pages/About/About";
+import Blogs from "./Pages/Blogs/Blogs";
+import Page404 from "./SharedPages/Other/Page404/Page404";
+import Footer from "./SharedPages/Footer/Footer";
 function App() {
   // font awesome global declear
   const iconList = Object.keys(Icons)
@@ -16,52 +20,11 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path="/" element={<HomePage></HomePage>} />
-        <Route path="/about" element={"about"} />
-        <Route path="/blog" element={"blog"} />
+        <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blogs />} />
+        <Route path="*" element={<Page404></Page404>} />
       </Routes>
-      <h2>Name is:</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
-      <h2>Navfb</h2>
+      <Footer />
     </div>
   );
 }
