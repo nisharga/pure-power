@@ -30,7 +30,7 @@ const SingleItem = () => {
             {/* <strike>${(price / 100) * 120}.00</strike> <b>${price}.00</b> */}
             22
           </p>
-          <Link to="/" className="btn btn-primary">
+          <Link to="/inventory/ds" className="btn btn-primary">
             Updated
           </Link>
         </div>

@@ -1,11 +1,11 @@
 import React from "react";
-import PageTitle from "../../../SharedComponents/PageTitle/PageTitle";
+import PageTitle from "../../../Other/PageTitle/PageTitle";
 import "./ForgotPass.css";
 import { Link } from "react-router-dom";
 import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import auth from "../../Firebase_Auth/Auth";
 import { toast } from "react-toastify";
+import auth from "../../Firebase_Auth/Auth";
 const ForgotPass = () => {
   const [sendPasswordResetEmail, sending, error] =
     useSendPasswordResetEmail(auth);

@@ -1,21 +1,21 @@
 import React from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { useSendEmailVerification } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import auth from "../../Firebase_Auth/Auth";
-import Spinner from "./../../Spinner/Spinner";
 import { toast } from "react-toastify";
+import Spinner from "../../../Other/Spinner/Spinner";
+import auth from "../../Firebase_Auth/Auth";
+import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 const SignupForm = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
   const [sendEmailVerification, sending, errorEmailVerify] =
     useSendEmailVerification(auth);
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
@@ -23,7 +23,14 @@ const SignupForm = () => {
     sendEmailVerification();
     toast("Check Email for Verification");
   };
-
+  // Redirect to that from page
+  let navigate = useNavigate();
+  let location = useLocation();
+  const [userEmail] = useAuthState(auth);
+  let from = location.state?.from?.pathname || "/";
+  if (user || userEmail) {
+    navigate(from, { replace: true });
+  }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="input-group mb-3">
@@ -54,18 +61,6 @@ const SignupForm = () => {
           {...register("password", { required: true })}
         />
       </div>
-      {/* <div className="form-group">
-        <div className="custom-control custom-checkbox">
-          <input
-            type="checkbox"
-            className="custom-control-input"
-            id="customControlInline"
-          />
-          <label className="custom-control-label" htmlFor="customControlInline">
-            Remember me
-          </label>
-        </div>
-      </div> */}
       {sending || loading ? <Spinner></Spinner> : ""}
       {error ? <p>{error.message}</p> : ""}
       {errorEmailVerify ? <p>{errorEmailVerify.message}</p> : ""}

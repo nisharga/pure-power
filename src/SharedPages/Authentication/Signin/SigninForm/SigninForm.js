@@ -4,20 +4,16 @@ import {
   useAuthState,
   useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
-import auth from "../../Firebase_Auth/Auth";
 import { toast } from "react-toastify";
 import { useNavigate, useLocation } from "react-router-dom";
+import auth from "../../Firebase_Auth/Auth";
+import Spinner from "./../../../Other/Spinner/Spinner";
 
 const SigninForm = () => {
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     const email = data.email;
     const password = data.password;
@@ -62,19 +58,9 @@ const SigninForm = () => {
           {...register("password", { required: true })}
         />
       </div>
-      {/* <div className="form-group">
-        <div className="custom-control custom-checkbox">
-          <input
-            type="checkbox"
-            className="custom-control-input"
-            id="customControlInline"
-          />
-          <label className="custom-control-label" for="customControlInline">
-            Remember me
-          </label>
-        </div>
-      </div> */}
-      <div className="d-flex justify-content-center mt-3 login_container">
+      {loading ? <Spinner></Spinner> : ""}
+      {error ? error.message : ""}
+      <div className="d-flex justiferrory-content-center mt-3 login_container">
         <input
           type="submit"
           value="SignIn"

@@ -1,9 +1,9 @@
 import React from "react";
 import "./Signup.css";
-import Logo from "../../img/logo.png";
-import PageTitle from "../../SharedComponents/PageTitle/PageTitle";
+import Logo from "../../../Image/logo.png";
+import PageTitle from "../../Other/PageTitle/PageTitle";
 import GoogleSignIn from "../Signin/GoogleSignIn/GoogleSignIn";
-import SignupForm from "./SignupForm/SignupForm";
+import SignupForm from "../Signup/SignupForm/SignupForm";
 import { Link } from "react-router-dom";
 const Signup = () => {
   return (

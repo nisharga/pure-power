@@ -1,5 +1,5 @@
 import React from "react";
-import Glogo from "../../../img/G_logo.png";
+import Glogo from "../../../../Image/G_logo.png";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "./../../Firebase_Auth/Auth";
 const GoogleSignIn = () => {

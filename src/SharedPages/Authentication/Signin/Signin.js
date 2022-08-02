@@ -1,9 +1,9 @@
 import React from "react";
 import "../Signup/Signup.css";
-import Logo from "../../img/logo.png";
-import PageTitle from "../../SharedComponents/PageTitle/PageTitle";
-import GoogleSignIn from "./GoogleSignIn/GoogleSignIn";
-import SigninForm from "./SigninForm/SigninForm";
+import Logo from "../../../Image/logo.png";
+import PageTitle from "../../../SharedPages/Other/PageTitle/PageTitle";
+import GoogleSignIn from "../Signin/GoogleSignIn/GoogleSignIn";
+import SigninForm from "../Signin/SigninForm/SigninForm";
 import { Link } from "react-router-dom";
 const Signin = () => {
   return (
@@ -25,7 +25,7 @@ const Signin = () => {
               <div className="mt-4">
                 <div className="d-flex justify-content-center links">
                   Don't have an account?
-                  <Link to="/Signup" className="ml-2">
+                  <Link to="/singup" className="ml-2">
                     Sign Up
                   </Link>
                 </div>
