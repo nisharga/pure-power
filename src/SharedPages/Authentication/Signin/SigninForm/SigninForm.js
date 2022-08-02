@@ -19,6 +19,9 @@ const SigninForm = () => {
     const password = data.password;
     signInWithEmailAndPassword(email, password);
   };
+  if (user) {
+    toast("Login Sucessfully!");
+  }
   // Redirect to that from page
   let navigate = useNavigate();
   let location = useLocation();
@@ -27,7 +30,6 @@ const SigninForm = () => {
   if (user || userEmail) {
     navigate(from, { replace: true });
   }
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="input-group mb-3">

@@ -13,6 +13,11 @@ import Signup from "./SharedPages/Authentication/Signup/Signup";
 import ForgotPass from "./SharedPages/Authentication/Signup/ForgotPass/ForgotPass";
 import ProductPage from "./Pages/ProductPage/ProductPage";
 import RequireAuth from "./SharedPages/Header/RequireAuth/RequireAuth";
+import InventoryPage from "./Pages/InventoryPage/InventoryPage";
+import AddInventory from "./Pages/AddInventory/AddInventory";
+import MyItems from "./Pages/MyItems/MyItems";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   // font awesome global declear
   const iconList = Object.keys(Icons)
@@ -30,6 +35,8 @@ function App() {
         <Route path="/login" element={<Signin></Signin>} />
         <Route path="/singup" element={<Signup></Signup>} />
         <Route path="/forgotpass" element={<ForgotPass></ForgotPass>} />
+        <Route path="/inventory" element={<InventoryPage></InventoryPage>} />
+        <Route path="/myitems" element={<MyItems></MyItems>} />
         <Route
           path="/inventory/:id"
           element={
@@ -38,9 +45,18 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route
+          path="/addinventory"
+          element={
+            <RequireAuth redirectTo="/login">
+              <AddInventory></AddInventory>
+            </RequireAuth>
+          }
+        />
         <Route path="*" element={<Page404></Page404>} />
       </Routes>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

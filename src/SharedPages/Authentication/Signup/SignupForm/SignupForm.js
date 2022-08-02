@@ -21,7 +21,6 @@ const SignupForm = () => {
     const password = data.password;
     createUserWithEmailAndPassword(email, password);
     sendEmailVerification();
-    toast("Check Email for Verification");
   };
   // Redirect to that from page
   let navigate = useNavigate();
@@ -30,6 +29,7 @@ const SignupForm = () => {
   let from = location.state?.from?.pathname || "/";
   if (user || userEmail) {
     navigate(from, { replace: true });
+    toast("User Create Sucessfully, Check Email for Verification");
   }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

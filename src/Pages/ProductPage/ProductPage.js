@@ -3,6 +3,7 @@ import "./ProductPage.css";
 import ProductDetails from "./ProductDetails/ProductDetails";
 import ProductImage from "./ProductImage/ProductImage";
 import PageTitle from "../../SharedPages/Other/PageTitle/PageTitle";
+import { Link } from "react-router-dom";
 const ProductPage = () => {
   return (
     <>
@@ -17,6 +18,11 @@ const ProductPage = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="d-flex justify-content-center">
+          <Link to="/inventory" className="button-three">
+            Manage Inventories
+          </Link>
         </div>
       </div>
     </>

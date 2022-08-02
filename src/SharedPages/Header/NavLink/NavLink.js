@@ -5,7 +5,7 @@ import auth from "../../Authentication/Firebase_Auth/Auth";
 import CustomLinks from "../CustomLinks/CustomLinks";
 
 const NavLink = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const logout = () => {
     signOut(auth);
   };
@@ -38,7 +38,7 @@ const NavLink = () => {
       </li>
       <li className="nav-item">
         {user ? (
-          <CustomLinks to="/additem" className="nav-link">
+          <CustomLinks to="/addinventory" className="nav-link">
             Add Item
           </CustomLinks>
         ) : (
@@ -60,7 +60,9 @@ const NavLink = () => {
             LogOut<i className="fa fa-sign-out"></i>
           </button>
         ) : (
-          ""
+          <CustomLinks to="/singup" className="nav-link">
+            Sign Up
+          </CustomLinks>
         )}
       </li>
     </ul>

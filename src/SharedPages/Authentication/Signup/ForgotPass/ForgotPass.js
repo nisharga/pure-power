@@ -6,6 +6,7 @@ import { useSendPasswordResetEmail } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import auth from "../../Firebase_Auth/Auth";
+import Spinner from "../../../Other/Spinner/Spinner";
 const ForgotPass = () => {
   const [sendPasswordResetEmail, sending, error] =
     useSendPasswordResetEmail(auth);
@@ -49,6 +50,8 @@ const ForgotPass = () => {
                 </div>
                 <input type="submit" className="login-button" value={"Send"} />
               </div>
+              {sending ? <Spinner></Spinner> : ""}
+              {error ? error.message : ""}
               <div className="etc-login-form">
                 <p>
                   already have an account?

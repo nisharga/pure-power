@@ -2,8 +2,9 @@ import React from "react";
 import Glogo from "../../../../Image/G_logo.png";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "./../../Firebase_Auth/Auth";
+import Spinner from "./../../../Other/Spinner/Spinner";
 const GoogleSignIn = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, loading, error] = useSignInWithGoogle(auth);
   const handleGoogleSignIN = () => {
     signInWithGoogle();
   };
@@ -23,6 +24,8 @@ const GoogleSignIn = () => {
             <img src={Glogo} alt="Google logo" />
             Signin Using Google
           </button>
+          {loading && <Spinner></Spinner>}
+          {error && error.message}
         </div>
       </div>
     </div>
