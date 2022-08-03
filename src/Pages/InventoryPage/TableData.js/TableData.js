@@ -4,16 +4,7 @@ import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import React from "react";
 const TableData = ({ data }) => {
-  const {
-    _id,
-    name,
-    image,
-    shortDescription,
-    price,
-    quantity,
-    supplier,
-    description,
-  } = data;
+  const { name, price, supplier } = data;
   const handleDelet = (id) => {
     confirmAlert({
       title: "Confirm to DELET",

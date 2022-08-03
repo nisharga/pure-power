@@ -14,7 +14,6 @@ const ProductPage = () => {
       .then((res) => res.json())
       .then((data) => setsingleProduct(data));
   }, [productId]);
-  console.log("singleProduct id", id.id);
   return (
     <>
       <PageTitle pagetitle="Inventory"></PageTitle>
@@ -24,7 +23,11 @@ const ProductPage = () => {
             <div className="container-fliud">
               <div className="wrapper row">
                 {singleProduct && (
-                  <ProductImage singleProductImage={singleProduct[0].image} />
+                  <ProductImage
+                    singleProductImage={singleProduct[0].image}
+                    singleProduct={singleProduct}
+                    productId={productId}
+                  />
                 )}
                 {singleProduct && (
                   <ProductDetails singleProductDetails={singleProduct[0]} />

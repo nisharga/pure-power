@@ -7,7 +7,7 @@ import Spinner from "./../../SharedPages/Other/Spinner/Spinner";
 const InventoryPage = () => {
   const [allProduct, setAllProduct] = useState();
   useEffect(() => {
-    fetch("http://localhost:5000/allproduct")
+    fetch("https://protected-taiga-39907.herokuapp.com/allproduct")
       .then((res) => res.json())
       .then((data) => setAllProduct(data));
   }, [setAllProduct]);
