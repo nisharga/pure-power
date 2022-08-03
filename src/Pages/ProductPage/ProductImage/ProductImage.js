@@ -1,12 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import Delivered from "./Delivered/Delivered";
-const ProductImage = () => {
+const ProductImage = ({ singleProductImage }) => {
   const { register, handleSubmit } = useForm();
   return (
     <div className="col-md-6">
       <div className="preview">
-        <img src="https://i.ibb.co/h9M4zRq/hamco.jpg" alt="img" />
+        <img src={singleProductImage} alt="batteryImage" />
       </div>
       <div className="">
         <Delivered></Delivered>

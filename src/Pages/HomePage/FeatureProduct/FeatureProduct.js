@@ -2,7 +2,10 @@ import React from "react";
 import "./FeatureProduct.css";
 import SingleItem from "./SingleItem/SingleItem";
 import { Link } from "react-router-dom";
+import useProduct from "../../../Hooks/useProduct";
+import Spinner from "./../../../SharedPages/Other/Spinner/Spinner";
 const FeatureProduct = () => {
+  const [product] = useProduct();
   return (
     <div className="featureProduct">
       <h2 className="featureTitle">
@@ -10,12 +13,10 @@ const FeatureProduct = () => {
       </h2>
       <div className="container">
         <div className="row">
-          <SingleItem></SingleItem>
-          <SingleItem></SingleItem>
-          <SingleItem></SingleItem>
-          <SingleItem></SingleItem>
-          <SingleItem></SingleItem>
-          <SingleItem></SingleItem>
+          {product?.slice(0, 6).map((data) => (
+            <SingleItem data={data} key={data._id}></SingleItem>
+          ))}
+          {!product && <Spinner></Spinner>}
         </div>
       </div>
       <div className="d-flex justify-content-center">
