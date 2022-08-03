@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PageTitle from "../../SharedPages/Other/PageTitle/PageTitle";
 import "./InventoryPage.css";
 import TableData from "./TableData.js/TableData";
 import { Link } from "react-router-dom";
+import Spinner from "./../../SharedPages/Other/Spinner/Spinner";
 const InventoryPage = () => {
+  const [allProduct, setAllProduct] = useState();
+  useEffect(() => {
+    fetch("http://localhost:5000/allproduct")
+      .then((res) => res.json())
+      .then((data) => setAllProduct(data));
+  }, [setAllProduct]);
   return (
     <>
       <PageTitle pagetitle="Inventory-Page"></PageTitle>
       <div className="inventoryArea">
         <h2 className="featureTitle">
-          Inventory <span>Product </span>
+          Inventory <span>Product {allProduct?.length}</span>
         </h2>
         <p className="text-center">
           <strong>(All orders here)</strong>
@@ -27,7 +34,10 @@ const InventoryPage = () => {
                   </tr>
                 </thead>
                 <tbody className="text-center">
-                  <TableData></TableData>
+                  {allProduct?.map((data) => (
+                    <TableData data={data}></TableData>
+                  ))}
+                  {!allProduct && <Spinner></Spinner>}
                 </tbody>
               </table>
             </div>

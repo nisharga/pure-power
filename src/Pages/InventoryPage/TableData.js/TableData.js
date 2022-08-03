@@ -2,10 +2,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
-
 import React from "react";
-
-const TableData = () => {
+const TableData = ({ data }) => {
+  const {
+    _id,
+    name,
+    image,
+    shortDescription,
+    price,
+    quantity,
+    supplier,
+    description,
+  } = data;
   const handleDelet = (id) => {
     confirmAlert({
       title: "Confirm to DELET",
@@ -35,9 +43,9 @@ const TableData = () => {
   };
   return (
     <tr>
-      <td>name</td>
-      <td>supply</td>
-      <td>price</td>
+      <td>{name}</td>
+      <td>{supplier}</td>
+      <td>{price}</td>
       <td>
         <button onClick={() => handleDelet("nk")}>
           <FontAwesomeIcon icon={faTrash} />
