@@ -4,7 +4,7 @@ import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 import React from "react";
 const TableData = ({ data }) => {
-  const { name, price, supplier } = data;
+  const { _id, name, price, supplier } = data;
   const handleDelet = (id) => {
     confirmAlert({
       title: "Confirm to DELET",
@@ -13,16 +13,16 @@ const TableData = ({ data }) => {
         {
           label: "Yes",
           onClick: () => {
-            fetch(`https://quiet-temple-29937.herokuapp.com/inventory/${id}`, {
+            fetch(`http://localhost:5000/allproduct/${id}`, {
               method: "DELETE",
             })
               .then((res) => res.json())
               .then((val) => {
                 if (val.deletedCount > 0) {
                   console.log(val, "val deleted");
+                  window.location.reload();
                 }
               });
-            window.location.reload();
           },
         },
         {
@@ -38,7 +38,7 @@ const TableData = ({ data }) => {
       <td>{supplier}</td>
       <td>{price}</td>
       <td>
-        <button onClick={() => handleDelet("nk")}>
+        <button onClick={() => handleDelet(_id)}>
           <FontAwesomeIcon icon={faTrash} />
         </button>
       </td>
