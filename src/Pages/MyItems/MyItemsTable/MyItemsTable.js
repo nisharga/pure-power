@@ -16,7 +16,7 @@ const MyItemsTable = (props) => {
         {
           label: "Yes",
           onClick: () => {
-            fetch(`http://localhost:5000/myitems/${id}`, {
+            fetch(`https://protected-taiga-39907.herokuapp.com/myitems/${id}`, {
               method: "DELETE",
             })
               .then((res) => res.json())

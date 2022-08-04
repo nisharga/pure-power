@@ -13,9 +13,12 @@ const TableData = ({ data }) => {
         {
           label: "Yes",
           onClick: () => {
-            fetch(`http://localhost:5000/allproduct/${id}`, {
-              method: "DELETE",
-            })
+            fetch(
+              `https://protected-taiga-39907.herokuapp.com/allproduct/${id}`,
+              {
+                method: "DELETE",
+              }
+            )
               .then((res) => res.json())
               .then((val) => {
                 if (val.deletedCount > 0) {
