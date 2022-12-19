@@ -1,1 +1,1 @@
-<a href="https://pure-power-6c1e2.web.app/">Pure Power Live Site</a>
+<a href="https://pure-power-kabirnisharga-gmailcom.vercel.app/">Pure Power Live Site</a>
